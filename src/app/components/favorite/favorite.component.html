@@ -1,0 +1,17 @@
+<h2>favorite Component below!</h2>
+<span class="spinner-border" 
+    [class.text-primary]="!isgreen" 
+    [class.text-success]="isgreen" 
+    
+    role="status" (click)="onClick()">
+</span>
+<br>
+<span class="sr-only">Loading...</span>  <button class="btn btn-primary">  Save </button>
+<br> 
+<input type = "text" [(ngModel)]="title">
+<br> 
+{{ title | casePipe }}
+
+<!-- this was replaced by ngClass -->
+<!-- [class.text-primary]="!isgreen" 
+[class.text-success]="isgreen"  -->

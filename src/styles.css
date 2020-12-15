@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+
+.form-control.ng-invalid.ng-touched{
+    border: red solid 
+}
+html, body { 
+    height: 100%; 
+    padding: 20px;
+    margin: 0;
+    font-family: "Montserrat";
+}
+
+.basic-container {
+  padding: 30px;
+}

@@ -1,0 +1,27 @@
+<p>zippy below!</p>
+
+<div class="zippy">
+
+    <div (click)="toggle()" 
+     class="zippy-heading" [class.seletcted]="toggled">
+        {{title}}
+        <span class="glyphicon"
+            ngClass="{
+                'glyphicon-chevron-down': !toggled,
+                'glyphicon-chevron-up': toggled
+            }"
+        ></span>
+    </div>
+
+    <div *ngIf="toggled" class="zippy-body" >
+        <ng-content>
+
+        </ng-content>
+    </div>
+</div>
+
+
+<!-- 
+<zippy title="Payment details">
+    Here are the Payment details    
+</zippy> -->

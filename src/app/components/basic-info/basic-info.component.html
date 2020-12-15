@@ -1,0 +1,90 @@
+
+<form [formGroup]="form" class="example-form" #f="ngForm" (ngSubmit)="submit(form.value)" >
+
+    <!-- <div  *ngIf="form.invalid && (form.dirty || form.touched)" class="alert alert-danger"> 
+           <div *ngIf="ft.touched && ft.invalid"  >*feet field is required</div>
+    <div *ngIf="inch.touched && inch.invalid" >*inches field is required</div>
+    <div *ngIf="cm.touched && cm.invalid" >*CM field is required</div>
+    <div *ngIf="kg.touched && kg.invalid" >*KG field is required</div>
+    <div *ngIf="lbs.touched && lbs.invalid" >*KG field is required</div>
+
+    </div> -->
+    
+    <mat-grid-list cols="3" rowHeight="3:1">
+        <mat-grid-tile colspan="1" rowspan="5">
+            <img class="side-img" src="https://miro.medium.com/max/700/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg" alt="">
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="2">
+            <div class="centerized">
+                <mat-list>
+                    <h4> Your Measurements </h4>
+                    <mat-divider></mat-divider>
+                    <p>a paragraph here</p>  
+                  </mat-list>
+            </div>
+                
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <!-- <mat-grid-tile-header>Height</mat-grid-tile-header> -->
+            <div [hidden]="f.value['heightIsCm'] != false" >
+                <mat-form-field class="example-half-width" appearance="fill">
+                    <!-- <mat-label>feet</mat-label> -->
+                    <span matSuffix>ft </span>
+                    <input type="number" matInput formControlName="ft" [required]="f.value['heightIsCm'] == false">
+                </mat-form-field>
+                <mat-form-field class="example-half-width" appearance="fill">
+                    <!-- <mat-label>inches</mat-label> -->
+                    <span matSuffix>in </span>
+                    <input type="number" matInput   formControlName="inch" [required]="f.value['heightIsCm'] == false">
+                </mat-form-field>
+            </div>
+            <div [hidden]="f.value['heightIsCm'] != true">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <!-- <mat-label>Height</mat-label> -->
+                    <span matSuffix>cm</span>
+                    <input type="number" matInput   formControlName="cm" [required]="f.value['heightIsCm'] == true">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <span matPrefix>ft &nbsp;</span>
+            <mat-slide-toggle formControlName="heightIsCm"></mat-slide-toggle>
+            <span matSuffix>&nbsp; cm</span>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <div [hidden]="f.value['weightIsKg'] != true">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <!-- <mat-label>Weight</mat-label> -->
+                    <input type="number" matInput formControlName="kg" [required]="f.value['weightIsKg'] == true">
+                    <span matSuffix>kg</span>
+                </mat-form-field>
+            </div>
+            <div [hidden] ="f.value['weightIsKg'] != false">
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <!-- <mat-label>Weight lbs</mat-label> -->
+                    <span matSuffix>lbs</span>
+                    <input type="number" matInput  formControlName="lbs"  [required]="f.value['weightIsKg'] == false">
+                </mat-form-field>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="1" rowspan="1">
+            <span matPrefix>lbs &nbsp;</span>
+            <div><mat-slide-toggle formControlName="weightIsKg"></mat-slide-toggle></div>
+            <span matSuffix>&nbsp; kg </span>
+
+        </mat-grid-tile>
+
+
+        <mat-grid-tile colspan="2" rowspan="1">
+            <button [disabled]="f.invalid"  (click)="submit(f.value)" type="button"  class="example-full-width"  mat-raised-button color="primary" [routerLink]="['/followers']" >Continue</button>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+    <p> {{ f.value | json}} </p>
+
+</form>

@@ -1,0 +1,33 @@
+.example-form {
+    min-width: 150px;
+    max-width: 620px;
+    width: 100%;
+    font-family: "Montserrat";
+}
+
+.centerized{
+  text-align: center;
+}
+
+.example-full-width {
+width: 100%;
+}
+
+.example-half-width {
+width: 50%;
+}
+
+.example-two-entries-width {
+  width: 47%;
+}
+  
+.example-small {
+  width: 25%;
+}
+
+.side-img{
+  vertical-align: top;
+  width: 160px;
+  height: 160px;
+  border-radius: 3%;
+}

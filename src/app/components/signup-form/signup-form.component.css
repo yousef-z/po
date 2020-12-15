@@ -1,0 +1,7 @@
+.body{
+    font: bold
+}
+
+.form-control.ng-invalid.ng-touched{
+    border: red solid 
+}

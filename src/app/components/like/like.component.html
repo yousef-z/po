@@ -1,0 +1,30 @@
+<br>
+
+<p>like works!</p>
+
+<div *ngIf="showLikes() ; then likesview else nolikesview" > </div>
+<ng-template #likesview>
+    <span class="glyphicon glyphicon-heart" [class.highlighted]="isLiked" (click)="onClick()" > </span>
+    <span>{{ LikesCount }}</span>
+    <br>
+</ng-template>
+
+<ng-template #nolikesview>
+    Likes view is not in the DOM (DISABLED)
+</ng-template>
+
+<div [hidden]="showLikes()">
+    is liked view hidden? to show it, set showLikesbool =  true
+</div> 
+
+<br>
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">map view</a> </li>
+    <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'">list view</a> </li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'"> Map View Content</div>
+    <div *ngSwitchCase="'list'"> List View Content</div>
+    <div *ngSwitchDefault> Something Else </div>
+</div>
+<br>
